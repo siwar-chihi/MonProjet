@@ -24,7 +24,7 @@ pipeline {
             steps {
                 bat """
                     docker rm -f monapp_test 2>nul || ver > nul
-                    docker run -d --name monapp_test -p 8081:80 %IMAGE%:%TAG%
+                    docker run -d --name monapp_test -p 8082:80 %IMAGE%:%TAG%
                     ping -n 5 127.0.0.1 > nul
                     docker rm -f monapp_test
                 """
