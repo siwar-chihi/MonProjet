@@ -2,7 +2,7 @@ pipeline {
     agent any
     options { timestamps() }
     environment {
-        IMAGE = 'siwarchihi/monapp'  // ← Mettez VOTRE username Docker Hub
+        IMAGE = 'siwarsiwar/monapp'  // ← Mettez VOTRE username Docker Hub
         TAG = "build-${env.BUILD_NUMBER}"
     }
     
@@ -35,8 +35,8 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(
                     credentialsId: 'dockerhub-creds',
-                    usernameVariable: 'siwarchihi',
-                    passwordVariable: 'papa dali 2016')]) {
+                    usernameVariable: 'siwarsiwar',
+                    passwordVariable: 'papa dali')]) {
                     bat """
                         echo %PASS% | docker login -u %USER% --password-stdin
                         docker tag %IMAGE%:%TAG% %IMAGE%:latest
